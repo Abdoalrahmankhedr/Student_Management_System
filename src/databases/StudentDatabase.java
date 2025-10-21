@@ -141,6 +141,10 @@ public class StudentDatabase {
         return this.records;
     }
 
+    public boolean contains(int id) {
+        return getStudentById(id) != null;
+    }
+
     public Student getStudentById(int id) {
         /* Return a student by a given ID */
         for (Student record : this.records) {
