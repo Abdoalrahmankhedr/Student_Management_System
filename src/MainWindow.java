@@ -25,7 +25,7 @@ import java.util.Map;
 
 public class MainWindow {
     /* App Icon Image */
-    private static final ImageIcon icon = new ImageIcon("src/main/resources/static/icon.png");
+    private static final ImageIcon icon = new ImageIcon("src/resources/icon.png");
     /* Window Name */
     private static final String title = "Student Management";
 
