@@ -3,7 +3,7 @@ package pages.components;
 import databases.UserDatabase;
 import javax.swing.*;
 import java.awt.*;
-
+import windows.MainWindow;
 // Andrew :)
 
 public class LoginButton extends JButton {
@@ -71,7 +71,7 @@ public class LoginButton extends JButton {
                 /* Go to next page */
                 // TODO: change page name after page is added
                 // TODO: remove print after first TODO
-                // MainWindow.goTo("next_page");
+                MainWindow.goTo("HomePage");
                 System.out.println("correct");
             } else {
                 JOptionPane.showMessageDialog(this,

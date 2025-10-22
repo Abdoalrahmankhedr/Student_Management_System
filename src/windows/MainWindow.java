@@ -60,8 +60,8 @@ public class MainWindow {
     public static void start() {
         if (main == null) {
             main = new JFrame();
-            /* Set window dimensions to 800x600 */
-            main.setSize(800, 600);
+            /* Set window dimensions to 1100x700 */
+            main.setSize(1100, 700);
             main.setTitle(title);
             /* Window can not change size */
             main.setResizable(false);
