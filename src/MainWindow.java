@@ -6,6 +6,23 @@ import java.util.Map;
 // Andrew :)
 
 /*
+    Usage of MainWindow:
+    [] Adding a page to window
+        1 - Create a class that extends JPanel
+        2 - Finish the page you need within the class
+        3 - use MainWindow.addPage("page_name", new Page());
+        4 - when navigating to page is necessary, use MainWindow.goTo("page_name");
+
+    [] Starting main window
+        MainWindow.start() in main
+
+    [] First page load
+        MainWindow.addPage("page_name", new Page());
+        MainWindow.goTo("page_name");
+        MainWindow.start();
+*/
+
+/*
     The layout of the window is structured as such:
     The main JFrame will be the window, housing the CardLayout
 
