@@ -11,13 +11,16 @@ public class UserDatabase {
     /* Members */
     private final List<User> records = new ArrayList<>();
     // file location is constant to allow easy adding for users
-    private final String filename = "src/resources/users.txt";
+    private static final String filename = "src/resources/users.txt";
 
     /* No args constructor */
-    public UserDatabase() {}
+    public UserDatabase() {
+        /* Get all users */
+        readFile();
+    }
 
-    public void readFile() {
-        File file = new File(this.filename);
+    private void readFile() {
+        File file = new File(filename);
 
         if (!file.exists() || !file.getName().endsWith(".txt")) {
             System.out.println("[UserDatabase]: Unable to read file!");
@@ -38,36 +41,6 @@ public class UserDatabase {
             System.out.println("[UserDatabase]: Successfully read all records!");
         } catch (FileNotFoundException err) {
             System.out.println("[UserDatabase]: File was not found");
-        }
-    }
-
-    public void saveToFile() {
-        File file = new File(this.filename);
-        try {
-            if (!file.exists() && file.getName().endsWith(".txt")) {
-                if (file.createNewFile()) System.out.println("[UserDatabase]: Successfully created new file!");
-                else {
-                    System.out.println("[UserDatabase]: Failed to create new file");
-                    return;
-                }
-            }
-        }
-        catch (IOException err) {
-            System.out.println("[UserDatabase]: Failed to create new file");
-        }
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(this.filename))) {
-            // Create BufferedWriter resource and cleanup
-
-            StringBuilder sb = new StringBuilder();
-            // Build a string from all record line representations
-            // and write that to file
-            for (User record : this.records) {
-                sb.append(record.lineRepresentation()).append("\n");
-            }
-            writer.write(sb.toString());
-            System.out.println("[UserDatabase]:  Successfully wrote to file!");
-        } catch (IOException err) {
-            System.out.println("[UserDatabase]:  File can not be accessed, perhaps it is being used by another program..");
         }
     }
 
