@@ -54,7 +54,7 @@ public class UserDatabase {
         String[] data = line.split("\\s*,\\s*");
 
         // If the given string doesn't represent EmployeeUser as expected
-        if (data.length < 6 || line.isEmpty()) {
+        if (data.length < 2 || line.isEmpty()) {
             // POSSIBLE: Unnecessary prints
             System.out.println("[UserDatabase]: Invalid line representation for User was given");
             return null;
