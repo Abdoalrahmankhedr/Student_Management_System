@@ -16,6 +16,13 @@ public class User {
         this.username = username;
     }
 
+    public String lineRepresentation() {
+        return String.format(
+                "%s,%s",
+                this.username, this.password
+        );
+    }
+
     /* Getters */
     public String getUsername() {return this.username;}
     public String getPassword() {return this.password;}
