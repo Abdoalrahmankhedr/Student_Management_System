@@ -1,9 +1,10 @@
 package pages.components;
 
-//import windows.MainWindow;
 import databases.UserDatabase;
 import javax.swing.*;
 import java.awt.*;
+
+// Andrew :)
 
 public class LoginButton extends JButton {
     private final JTextField username;
@@ -15,15 +16,19 @@ public class LoginButton extends JButton {
         this.username = username;
         this.password = password;
 
+        /* Design Login Button */
         setText("Login");
         setPreferredSize(new Dimension(200, 30));
         setBackground(new Color(30, 203, 225));
         setForeground(Color.white);
         setFont(new Font("Arial", Font.BOLD, 16));
+        /* Border */
         setBorder(BorderFactory.createLineBorder(Color.black, 2, true));
 
+        /* On click event listener */
         addActionListener((_) -> verifyLogin());
 
+        /* Disable button if not initialised correctly */
         if (username == null || password == null) {
             System.out.println("[LoginButton]: Must provide both username and password fields\n");
             setEnabled(false);
@@ -31,6 +36,7 @@ public class LoginButton extends JButton {
     }
 
     private void verifyLogin() {
+        /* Carry out login process */
         String currentUser = username.getText();
 
         /* Retrieve password */
@@ -41,7 +47,7 @@ public class LoginButton extends JButton {
         /* Log in console */
         System.out.printf("[LoginButton]: Entered %s and %s as login credentials\n", currentUser, currentPwd);
 
-        /* Verify */
+        /* Verify & Display */
         if (currentUser.isEmpty() && currentPwd.isEmpty()) {
             JOptionPane.showMessageDialog(this,
                                 "Please enter username and password",
@@ -64,6 +70,7 @@ public class LoginButton extends JButton {
             if (db.validatePassword(currentUser, currentPwd)) {
                 /* Go to next page */
                 // TODO: change page name after page is added
+                // TODO: remove print after first TODO
                 // MainWindow.goTo("next_page");
                 System.out.println("correct");
             } else {
