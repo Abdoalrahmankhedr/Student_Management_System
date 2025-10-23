@@ -7,7 +7,6 @@ public class Main {
     public static void main(String[] args) {
         /* Check usage of MainWindow */
         //Add the pages to the MainWindow
-        MainWindow.addPage("login", new LoginPage());
         MainWindow.addPage("StudentsList",new StudentsList());
         MainWindow.addPage("AddStudent",new AddStudent());
         MainWindow.addPage("HomePage",new HomePage());
