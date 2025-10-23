@@ -12,8 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StudentsList extends JPanel {
-    private List<Student> ListOfAllStudents;
-    private List<Student> shownStudents;
+    private static List<Student> ListOfAllStudents;
+    private static List<Student> shownStudents;
     public StudentsList() {
         setBackground(new Color(240, 240, 240));
         setLayout(new BorderLayout());
@@ -101,15 +101,16 @@ public class StudentsList extends JPanel {
         add(controlPanel, BorderLayout.CENTER);
         GetStudentsData();
     }
-    private void GetStudentsData(){
-        StudentDatabase studentDatabase=new StudentDatabase("Students.txt");
+    public static void GetStudentsData(){
+        System.out.println("The data of the Students is Loaded from the file to teh show student list Page");
+        StudentDatabase studentDatabase=new StudentDatabase("src/resources/students.txt");
         ListOfAllStudents = studentDatabase.getStudents();
         shownStudents=ListOfAllStudents;
         ChangeFilterOnSort("Sort by ID (Ascending)");
         showDataTable(shownStudents);
     }
     //This function will be called if there is a change in searchComBox or in SearchField
-    private void ChangeFilterOnSearch(String searchBy,String searchKey){
+    private static void ChangeFilterOnSearch(String searchBy,String searchKey){
         System.out.println("You search with"+searchBy +"And the Searchkey is "+ searchKey);
         //This will check if user entered a search key or not
         if (!searchKey.equals("Write Search Key...") && !searchKey.isEmpty()) {
@@ -126,7 +127,7 @@ public class StudentsList extends JPanel {
         }
     }
     //This will be called if there change in selected type of sort
-    private void ChangeFilterOnSort(String sortKey){
+    private static void ChangeFilterOnSort(String sortKey){
         System.out.println("You are sorting and the sorting type is :"+sortKey);
         //check the sortkey and sort it according to the type that user choose
         if(sortKey.equals("Sort by ID (Ascending)")){
@@ -144,7 +145,7 @@ public class StudentsList extends JPanel {
         }
         showDataTable(shownStudents);
     }
-    private void showDataTable(List<Student> showThisData){
+    private static void showDataTable(List<Student> showThisData){
         //construct the table and show this data it
     }
 }

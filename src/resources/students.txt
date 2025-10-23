@@ -1,0 +1,11 @@
+9624,Abdoalrahman khedr,20,Male,CCE,3.69
+9090,Sara Ahmed,21,Female,CS,3.85
+9101,Mohamed Ali,22,Male,IT,3.40
+1012,Nour Hassan,19,Female,IS,3.95
+9321,Karim Tamer,23,Male,CCE,2.78
+1234,Salma Adel,20,Female,CS,3.60
+4321,Omar Youssef,21,Male,DS,3.10
+9876,Hana Magdy,22,Female,IT,3.72
+1213,Youssef Amr,19,Male,CCE,3.50
+1231,Laila Samir,20,Female,IS,3.88
+9246,Mostafa Reda,23,Male,CS,2.95

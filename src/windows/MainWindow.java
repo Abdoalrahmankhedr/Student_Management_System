@@ -1,5 +1,7 @@
 package windows;
 
+import pages.StudentsList;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.HashMap;
@@ -101,6 +103,9 @@ public class MainWindow {
         /* Navigate to specific page */
         Component page = pages.getOrDefault(name, null);
         if (page != null) {
+            if(name.equals("StudentsList")){
+                StudentsList.GetStudentsData();
+            }
             cardLayout.show(cardPanel, name);
         }
     }
