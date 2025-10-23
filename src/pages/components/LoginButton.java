@@ -69,10 +69,9 @@ public class LoginButton extends JButton {
         } else {
             if (db.validatePassword(currentUser, currentPwd)) {
                 /* Go to next page */
-                // TODO: change page name after page is added
-                // TODO: remove print after first TODO
+                username.setText("");
+                password.setText("");
                 MainWindow.goTo("HomePage");
-                System.out.println("correct");
             } else {
                 JOptionPane.showMessageDialog(this,
                         "Incorrect username or password",
