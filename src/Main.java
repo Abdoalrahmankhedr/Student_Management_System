@@ -1,7 +1,4 @@
-import pages.AddStudent;
-import pages.HomePage;
-import pages.LoginPage;
-import pages.StudentsList;
+import pages.*;
 import windows.MainWindow;
 public class Main {
     public static void main(String[] args) {
@@ -10,6 +7,7 @@ public class Main {
         MainWindow.addPage("StudentsList",new StudentsList());
         MainWindow.addPage("AddStudent",new AddStudent());
         MainWindow.addPage("HomePage",new HomePage());
+        MainWindow.addPage("UpdateStudent",new UpdateStudent());
         /* Adds login page and loads it as the first page */
         MainWindow.addPage("login", new LoginPage());
         MainWindow.goTo("login");
