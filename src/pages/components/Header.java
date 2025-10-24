@@ -6,7 +6,7 @@ import java.awt.*;
 
 public class Header extends JPanel {
     private JLabel titleLabel;
-    private JButton backButton;
+    public JButton backButton = new JButton("← Back");
     //Constructure
     //This will set the titlePage with the value of the parameter "title"
     //And if showBackButton is false this will not show the backButton
@@ -23,8 +23,6 @@ public class Header extends JPanel {
 
 
         if(showBackButton){
-            JButton backButton = new JButton("← Back");
-            backButton.addActionListener(e -> MainWindow.goTo("HomePage"));
             backButton.setBackground(new Color(37, 99, 235));
             backButton.setForeground(Color.WHITE);
             backButton.setFont(new Font("Arial", Font.PLAIN, 20));
