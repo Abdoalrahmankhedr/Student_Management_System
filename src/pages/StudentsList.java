@@ -122,6 +122,7 @@ public class StudentsList extends JPanel {
     //This function will be called if there is a change in searchComBox or in SearchField
     private static void ChangeFilterOnSearch(String searchBy,String searchKey){
         System.out.println("You search with"+searchBy +"And the Searchkey is "+ searchKey);
+        searchKey=searchKey.trim();
         //This will check if user entered a search key or not
         if (!searchKey.equals("Write Search Key...") && !searchKey.isEmpty()) {
             shownStudents = new ArrayList<>();
@@ -133,6 +134,11 @@ public class StudentsList extends JPanel {
                     shownStudents.add(student);
                 }
             }
+            showDataTable(shownStudents);
+        }
+        else{
+            shownStudents=ListOfAllStudents;
+            ChangeFilterOnSort((String) sortCombo.getSelectedItem());
             showDataTable(shownStudents);
         }
     }
