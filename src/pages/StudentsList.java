@@ -3,6 +3,8 @@ import java.util.*;
 import databases.StudentDatabase;
 import models.Student;
 import pages.components.Header;
+import windows.MainWindow;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.FocusAdapter;
@@ -14,27 +16,31 @@ import java.util.List;
 public class StudentsList extends JPanel {
     private static List<Student> ListOfAllStudents;
     private static List<Student> shownStudents;
+    private static JComboBox<String> sortCombo;
+    private static JComboBox<String> searchCombo;
+    private static JTextField searchField;
     public StudentsList() {
         setBackground(new Color(240, 240, 240));
         setLayout(new BorderLayout());
         //Show A header with title "Students Lists" and back button
         Header header = new Header("Students Lists", true);
         header.setPreferredSize(new Dimension(1000, 50));
+        header.backButton.addActionListener(e-> MainWindow.goTo("HomePage"));
         add(header, BorderLayout.NORTH);
         //Add panel for controls
         JPanel controlPanel = new JPanel(new GridBagLayout());
         controlPanel.setBackground(new Color(240, 240, 240));
         //panel for searchfield
-        JTextField searchField = new JTextField("Write Search Key...");
+        searchField = new JTextField("Write Search Key...");
         //grid
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(5, 10, 5, 10);
         gbc.gridx = 0;
         gbc.gridy = 0;
         //ComBox for search type
-        JComboBox<String> searchCombo = new JComboBox<>(new String[]{
+        searchCombo = new JComboBox<>(new String[]{
                 "Search By Name",
-                "Search By ID"
+                "Search By ID",
         });
         controlPanel.add(searchCombo, gbc);
         searchCombo.setPreferredSize(new Dimension(300, 35));
@@ -47,7 +53,7 @@ public class StudentsList extends JPanel {
         });
         gbc.gridx = 1;
         //ComBox for Sort type
-        JComboBox<String> sortCombo = new JComboBox<>(new String[]{
+        sortCombo = new JComboBox<>(new String[]{
                 "Sort by ID (Ascending)",
                 "Sort by Name (Ascending)",
                 "Sort by ID (Descending)",
@@ -106,6 +112,10 @@ public class StudentsList extends JPanel {
         StudentDatabase studentDatabase=new StudentDatabase("src/resources/students.txt");
         ListOfAllStudents = studentDatabase.getStudents();
         shownStudents=ListOfAllStudents;
+        searchField.setText("Write Search Key...");
+        searchField.setForeground(Color.GRAY);
+        sortCombo.setSelectedItem("Sort by ID (Ascending)");
+        searchCombo.setSelectedItem("Search By Name");
         ChangeFilterOnSort("Sort by ID (Ascending)");
         showDataTable(shownStudents);
     }

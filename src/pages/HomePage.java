@@ -18,10 +18,16 @@ public class HomePage extends JPanel {
         JPanel buttonsPanel = new JPanel();
         buttonsPanel.setBackground(Color.WHITE);
         buttonsPanel.setLayout(new GridLayout(3, 1, 10, 10));
+        ImageIcon rawIcon = new ImageIcon("C:\\Users\\DELL\\Desktop\\Java op\\Student_Management_System\\src\\resources\\log-out.png");
+        Image scaled = rawIcon.getImage().getScaledInstance(24, 24, Image.SCALE_SMOOTH);
+        ImageIcon icon = new ImageIcon(scaled);
 
-        JButton btn1 = new JButton("Add A Student");
-        JButton btn2 = new JButton("Show Students List");
-        JButton btn3 = new JButton("Log Out");
+        JButton btn1 = new JButton("Add a student");
+        JButton btn2 = new JButton("Show Student List");
+        JButton btn3 = new JButton("Log Out", icon);
+
+        btn3.setFont(new Font("Arial", Font.BOLD, 30));
+        btn3.setIconTextGap(10);
 
         Font font = new Font("Arial", Font.BOLD, 25);
         Dimension btnSize = new Dimension(300, 40);
