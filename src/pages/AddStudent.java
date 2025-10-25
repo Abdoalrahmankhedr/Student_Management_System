@@ -22,7 +22,7 @@ public class AddStudent extends JPanel {
         add(header, BorderLayout.NORTH);
 
         // Database connection
-        StudentDatabase db = new StudentDatabase("src\\resources\\students.txt");
+        StudentDatabase db = new StudentDatabase("src/resources/students.txt");
 
 
         Form form = new Form(db);
