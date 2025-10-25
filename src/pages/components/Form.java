@@ -107,12 +107,31 @@ public class Form extends JPanel {
         String ageText = ageField.getText().trim();
         String gpaText = gpaField.getText().trim();
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
         if (name.isEmpty() || ageText.isEmpty() || gender == null || gender.isEmpty()
                 || dept.isEmpty() || gpaText.isEmpty()) {
             showError("Please fill in all fields.");
             return;
         }
 
+<<<<<<< Updated upstream
+=======
+
+        if (!name.matches("^[A-Za-z ]+$")) {
+            showError("Name must contain only letters and spaces.");
+            return;
+        }
+
+
+        if (!dept.matches("^[A-Za-z ]+$")) {
+            showError("Department must contain only letters and spaces.");
+            return;
+        }
+
+>>>>>>> Stashed changes
         int age;
         float gpa;
 
@@ -125,6 +144,35 @@ public class Form extends JPanel {
         }
 
 
+<<<<<<< Updated upstream
+=======
+        if (age < 15 || age > 100) {
+            showError("Age must be between 15 and 100.");
+            return;
+        }
+
+
+        if (gpa < 0.0 || gpa > 4.0) {
+            showError("GPA must be between 0.0 and 4.0.");
+            return;
+        }
+
+
+        name = capitalizeWords(name);
+        dept = capitalizeWords(dept);
+
+
+        if (isUpdateMode) {
+            int id = Integer.parseInt(idText);
+            db.updateStudent(id, name, age, gender.toLowerCase(), dept, gpa);
+            db.saveToFile();
+            JOptionPane.showMessageDialog(this, "Student updated successfully.");
+            MainWindow.goTo("HomePage");
+            return;
+        }
+
+
+>>>>>>> Stashed changes
         if (idText.isEmpty()) {
             db.addStudent(name, age, gender.toLowerCase(), dept, gpa);
         } else {
@@ -144,15 +192,35 @@ public class Form extends JPanel {
         db.saveToFile();
         JOptionPane.showMessageDialog(this, "Student added successfully.");
 
+<<<<<<< Updated upstream
 
         clearForm();
 
 
+=======
+        clearForm();
+>>>>>>> Stashed changes
         MainWindow.goTo("HomePage");
     }
 
 
+<<<<<<< Updated upstream
     public void clearForm() {
+=======
+    private String capitalizeWords(String text) {
+        String[] words = text.toLowerCase().split(" ");
+        StringBuilder sb = new StringBuilder();
+        for (String w : words) {
+            if (w.isEmpty()) continue;
+            sb.append(Character.toUpperCase(w.charAt(0)))
+                    .append(w.substring(1))
+                    .append(" ");
+        }
+        return sb.toString().trim();
+    }
+
+    private void clearForm() {
+>>>>>>> Stashed changes
         idField.setText("");
         nameField.setText("");
         departmentField.setText("");

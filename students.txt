@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 9225,Kamal Mohamed,21,male,Bio,3.60
 9555,Lamar,22,female,mecha,3.50
 9258,Jamal,21,male,compu,3.20
@@ -5,3 +6,7 @@
 9638,nour,30,male,compu,3.22
 9639,nour,22,male,compu,3.87
 9999,nour,20,female,compu,3.89
+=======
+9635,Sdj,25,male,Kaajd,3.20
+9636,Hassan,22,male,Compu,3.60
+>>>>>>> Stashed changes
