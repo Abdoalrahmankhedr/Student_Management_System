@@ -18,7 +18,7 @@ public class HomePage extends JPanel {
         JPanel buttonsPanel = new JPanel();
         buttonsPanel.setBackground(Color.WHITE);
         buttonsPanel.setLayout(new GridLayout(3, 1, 10, 10));
-        ImageIcon rawIcon = new ImageIcon("C:\\Users\\DELL\\Desktop\\Java op\\Student_Management_System\\src\\resources\\log-out.png");
+        ImageIcon rawIcon = new ImageIcon("src\\resources\\log-out.png");
         Image scaled = rawIcon.getImage().getScaledInstance(24, 24, Image.SCALE_SMOOTH);
         ImageIcon icon = new ImageIcon(scaled);
 

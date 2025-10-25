@@ -22,7 +22,7 @@ public class AddStudent extends JPanel {
         add(header, BorderLayout.NORTH);
 
         // Database connection
-        StudentDatabase db = new StudentDatabase("students.txt");
+        StudentDatabase db = new StudentDatabase("src\\resources\\students.txt");
 
 
         Form form = new Form(db);
@@ -39,7 +39,7 @@ public class AddStudent extends JPanel {
 
         card.add(form, BorderLayout.CENTER);
 
-        
+
         JPanel centerWrapper = new JPanel(new GridBagLayout());
         centerWrapper.setOpaque(false);
         centerWrapper.add(card);
