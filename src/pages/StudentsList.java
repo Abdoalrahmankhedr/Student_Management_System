@@ -156,7 +156,7 @@ public class StudentsList extends JPanel {
             // if yes add it to shownStudents
             for (Student student : ListOfAllStudents) {
 
-                if ((searchBy.equals("Search By Name") && student.getName().contains(searchKey))
+                if ((searchBy.equals("Search By Name") && student.getName().toLowerCase().contains(searchKey.toLowerCase()))
                         || (searchBy.equals("Search By ID") && Integer.toString(student.getId()).contains(searchKey))) {
                     shownStudents.add(student);
                 }
