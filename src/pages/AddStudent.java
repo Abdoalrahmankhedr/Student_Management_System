@@ -8,33 +8,10 @@ import databases.StudentDatabase;
 import javax.swing.*;
 import java.awt.*;
 
-
+/**
+ * AddStudent page styled like a modern card layout.
+ */
 public class AddStudent extends JPanel {
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-    private final Form form;
-
-    public AddStudent() {
-        setBackground(new Color(240, 240, 240));
-        setLayout(new BorderLayout());
-
-
-        Header header = new Header("Add Student", true);
-        header.setPreferredSize(new Dimension(800, 60));
-        add(header, BorderLayout.NORTH);
-
-        // Database
-        StudentDatabase db = new StudentDatabase("students.txt");
-
-
-        form = new Form(db);
-
-
-        header.backButton.addActionListener(e -> {
-            form.clearForm(); // Reset fields when going back
-            MainWindow.goTo("HomePage");
-        });
-=======
     public AddStudent() {
         // Background color
         setBackground(new Color(240, 240, 240));
@@ -46,51 +23,25 @@ public class AddStudent extends JPanel {
         header.backButton.addActionListener(e -> MainWindow.goTo("HomePage"));
         add(header, BorderLayout.NORTH);
 
-=======
-    public AddStudent() {
-        // Background color
-        setBackground(new Color(240, 240, 240));
-        setLayout(new BorderLayout());
-
-        // Header
-        Header header = new Header("Add Student", true);
-        header.setPreferredSize(new Dimension(800, 60));
-        header.backButton.addActionListener(e -> MainWindow.goTo("HomePage"));
-        add(header, BorderLayout.NORTH);
-
->>>>>>> Stashed changes
         // Database connection
         StudentDatabase db = new StudentDatabase("students.txt");
 
-
+        // Form
         Form form = new Form(db);
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 
-
+        // White rounded card for the form
         JPanel card = new JPanel(new BorderLayout());
         card.setBackground(Color.WHITE);
         card.setBorder(BorderFactory.createCompoundBorder(
                 BorderFactory.createEmptyBorder(32, 32, 32, 32),
                 BorderFactory.createLineBorder(new Color(230, 230, 230), 1, true)
         ));
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
         card.setOpaque(true);
 
-
->>>>>>> Stashed changes
-=======
-        card.setOpaque(true);
-
-
->>>>>>> Stashed changes
+        // Add form to card
         card.add(form, BorderLayout.CENTER);
 
-
+        // Center wrapper
         JPanel centerWrapper = new JPanel(new GridBagLayout());
         centerWrapper.setOpaque(false);
         centerWrapper.add(card);

@@ -107,41 +107,25 @@ public class Form extends JPanel {
         String ageText = ageField.getText().trim();
         String gpaText = gpaField.getText().trim();
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
-=======
-
->>>>>>> Stashed changes
+        // ✅ Check empty fields
         if (name.isEmpty() || ageText.isEmpty() || gender == null || gender.isEmpty()
                 || dept.isEmpty() || gpaText.isEmpty()) {
             showError("Please fill in all fields.");
             return;
         }
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
-=======
->>>>>>> Stashed changes
-
+        // ✅ Validate name (letters and spaces)
         if (!name.matches("^[A-Za-z ]+$")) {
             showError("Name must contain only letters and spaces.");
             return;
         }
 
-
+        // ✅ Validate department (letters and spaces)
         if (!dept.matches("^[A-Za-z ]+$")) {
             showError("Department must contain only letters and spaces.");
             return;
         }
 
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
         int age;
         float gpa;
 
@@ -153,28 +137,23 @@ public class Form extends JPanel {
             return;
         }
 
-
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
-=======
->>>>>>> Stashed changes
+        // ✅ Validate age
         if (age < 15 || age > 100) {
             showError("Age must be between 15 and 100.");
             return;
         }
 
-
+        // ✅ Validate GPA
         if (gpa < 0.0 || gpa > 4.0) {
             showError("GPA must be between 0.0 and 4.0.");
             return;
         }
 
-
+        // ✅ Capitalize Name & Department
         name = capitalizeWords(name);
         dept = capitalizeWords(dept);
 
-
+        // ✅ Update Mode
         if (isUpdateMode) {
             int id = Integer.parseInt(idText);
             db.updateStudent(id, name, age, gender.toLowerCase(), dept, gpa);
@@ -184,11 +163,7 @@ public class Form extends JPanel {
             return;
         }
 
-
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+        // ✅ Add Mode
         if (idText.isEmpty()) {
             db.addStudent(name, age, gender.toLowerCase(), dept, gpa);
         } else {
@@ -208,28 +183,11 @@ public class Form extends JPanel {
         db.saveToFile();
         JOptionPane.showMessageDialog(this, "Student added successfully.");
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-
         clearForm();
-
-
-=======
-        clearForm();
->>>>>>> Stashed changes
-=======
-        clearForm();
->>>>>>> Stashed changes
         MainWindow.goTo("HomePage");
     }
 
-
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-    public void clearForm() {
-=======
-=======
->>>>>>> Stashed changes
+    // ✅ Capitalize each word
     private String capitalizeWords(String text) {
         String[] words = text.toLowerCase().split(" ");
         StringBuilder sb = new StringBuilder();
@@ -243,10 +201,6 @@ public class Form extends JPanel {
     }
 
     private void clearForm() {
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
         idField.setText("");
         nameField.setText("");
         departmentField.setText("");
