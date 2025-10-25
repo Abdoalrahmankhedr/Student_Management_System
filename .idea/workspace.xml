@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f9b15e32-9143-4aa3-a16e-bcab544a037f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/pages/AddStudent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddStudent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/components/Form.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/components/Form.java" afterDir="false" />
-    </list>
+    <list default="true" id="f9b15e32-9143-4aa3-a16e-bcab544a037f" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

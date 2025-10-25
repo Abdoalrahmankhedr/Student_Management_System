@@ -32,7 +32,7 @@ public class AddStudent extends JPanel {
 
         // Back button behavior
         header.backButton.addActionListener(e -> {
-            form.clearForm(); // ✅ Reset fields when going back
+            form.clearForm(); // Reset fields when going back
             MainWindow.goTo("HomePage");
         });
 
