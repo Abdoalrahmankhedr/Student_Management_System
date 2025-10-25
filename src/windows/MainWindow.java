@@ -1,6 +1,8 @@
 package windows;
 
 import pages.StudentsList;
+import pages.UpdateStudent;
+import models.Student; // تم إضافة استيراد Student
 
 import javax.swing.*;
 import java.awt.*;
@@ -101,12 +103,36 @@ public class MainWindow {
 
     public static void goTo(String name) {
         /* Navigate to specific page */
-        Component page = pages.getOrDefault(name, null);
-        if (page != null) {
-            if(name.equals("StudentsList")){
-                StudentsList.GetStudentsData();
+        goTo(name, null);
+    }
+
+    public static void goTo(String name, Student data) {
+        if (name.equals("UpdateStudent") && data != null) {
+
+            UpdateStudent updatePage = new UpdateStudent(data);
+
+            String dynamicPageName = "UpdateStudentDynamic";
+
+            Component existing = pages.getOrDefault(dynamicPageName, null);
+            if (existing != null) {
+                cardPanel.remove(existing);
+                pages.remove(dynamicPageName);
             }
-            cardLayout.show(cardPanel, name);
+
+            pages.put(dynamicPageName, updatePage);
+            cardPanel.add(updatePage, dynamicPageName);
+
+            cardLayout.show(cardPanel, dynamicPageName);
+
+        } else {
+            /* Navigate to specific page */
+            Component page = pages.getOrDefault(name, null);
+            if (page != null) {
+                if(name.equals("StudentsList")){
+                    StudentsList.GetStudentsData();
+                }
+                cardLayout.show(cardPanel, name);
+            }
         }
     }
 }
