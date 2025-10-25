@@ -2,10 +2,7 @@ package databases;
 
 import models.Student;
 
-import java.io.*;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 // Andrew :)
 
@@ -18,19 +15,15 @@ import java.util.Scanner;
         WARNING: manually adding an ID that is ahead of the current sequence would disrupt it
                  meaning, if the latest record has ID 10, manually adding a record of ID 50
                  would add the next automatically generated one at 51
-
-    Methods such as readFile & saveToFile were copied from our previous project here:
-    https://github.com/acskii/inventory-management/blob/main/src/main/java/databases/GenericDatabase.java
 */
 
-public class StudentDatabase {
+public class StudentDatabase extends Database<Student> {
     /* Members */
-    private final List<Student> records = new ArrayList<>();
-    private final String filename;
     private int indexId;
 
     public StudentDatabase(String filename) {
-        this.filename = filename;
+        super(filename);
+        this.logName = "StudentDatabase";
 
         /* Getting latest ID */
         /* Loading previous records */
@@ -43,61 +36,7 @@ public class StudentDatabase {
         // Note: Generating IDs will count from that
     }
 
-    public void readFile() {
-        File file = new File(this.filename);
-
-        if (!file.exists() || !file.getName().endsWith(".txt")) {
-            System.out.println("[StudentDatabase]: Unable to read file!");
-            return;
-        }
-
-        try (Scanner reader = new Scanner(file)) {
-            // Create Scanner resource and cleanup
-
-            // Reset records before reading
-            this.records.clear();
-            // As long as the file has lines,
-            while (reader.hasNextLine()) {
-                String line = reader.nextLine();
-                Student record = createRecordFrom(line);
-                insertRecord(record);
-            }
-            System.out.println("[StudentDatabase]: Successfully read all records!");
-        } catch (FileNotFoundException err) {
-            System.out.println("[StudentDatabase]: File was not found");
-        }
-    }
-
-    public void saveToFile() {
-        File file = new File(this.filename);
-        try {
-            if (!file.exists() && file.getName().endsWith(".txt")) {
-                if (file.createNewFile()) System.out.println("[StudentDatabase]: Successfully created new file!");
-                else {
-                    System.out.println("[StudentDatabase]: Failed to create new file");
-                    return;
-                }
-            }
-        }
-        catch (IOException err) {
-            System.out.println("[StudentDatabase]: Failed to create new file");
-        }
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(this.filename))) {
-            // Create BufferedWriter resource and cleanup
-
-            StringBuilder sb = new StringBuilder();
-            // Build a string from all record line representations
-            // and write that to file
-            for (Student record : this.records) {
-                sb.append(record.lineRepresentation()).append("\n");
-            }
-            writer.write(sb.toString());
-            System.out.println("[StudentDatabase]:  Successfully wrote to file!");
-        } catch (IOException err) {
-            System.out.println("[StudentDatabase]:  File can not be accessed, perhaps it is being used by another program..");
-        }
-    }
-
+    @Override
     public Student createRecordFrom(String line) {
         // Note:
         // Student.lineRepresentation() returns:
@@ -127,12 +66,6 @@ public class StudentDatabase {
         } catch (NumberFormatException err) {
             System.out.println("[StudentDatabase]: Invalid line representation for Student was given");
             return null;
-        }
-    }
-
-    private void insertRecord(Student student) {
-        if (student != null) {
-            this.records.add(student);
         }
     }
 

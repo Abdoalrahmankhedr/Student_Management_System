@@ -7,7 +7,7 @@ package models;
     Has validation methods to ensure attributes are correct
 */
 
-public class Student {
+public class Student implements Model {
     private int id;
     private String name;
     private Integer age;
@@ -24,6 +24,7 @@ public class Student {
         this.id = id;
     }
 
+    @Override
     public String lineRepresentation() {
         // Student record representation in file "{id},{name},{age},{gender},{department},{gpa}"
         return String.format(

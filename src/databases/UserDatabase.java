@@ -2,50 +2,26 @@ package databases;
 
 import models.User;
 
-import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 // Andrew :)
 
-public class UserDatabase {
+public class UserDatabase extends Database<User> {
     /* Members */
-    private final List<User> records = new ArrayList<>();
     // file location is constant to allow easy adding for users
     private static final String filename = "src/resources/users.txt";
 
     /* No args constructor */
     public UserDatabase() {
+        super(filename);
+        this.logName = "UserDatabase";
+
         /* Get all users */
         readFile();
     }
 
-    private void readFile() {
-        File file = new File(filename);
-
-        if (!file.exists() || !file.getName().endsWith(".txt")) {
-            System.out.println("[UserDatabase]: Unable to read file!");
-            return;
-        }
-
-        try (Scanner reader = new Scanner(file)) {
-            // Create Scanner resource and cleanup
-
-            // Reset records before reading
-            this.records.clear();
-            // As long as the file has lines,
-            while (reader.hasNextLine()) {
-                String line = reader.nextLine();
-                User record = createRecordFrom(line);
-                insertRecord(record);
-            }
-            System.out.println("[UserDatabase]: Successfully read all records!");
-        } catch (FileNotFoundException err) {
-            System.out.println("[UserDatabase]: File was not found");
-        }
-    }
-
+    @Override
     public User createRecordFrom(String line) {
         // Note:
         // User.lineRepresentation() returns:
@@ -66,12 +42,6 @@ public class UserDatabase {
         String password = data[1];
 
         return new User(username, password);
-    }
-
-    private void insertRecord(User user) {
-        if (user != null) {
-            this.records.add(user);
-        }
     }
 
     public User getUserByName(String username) {

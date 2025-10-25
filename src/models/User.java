@@ -7,7 +7,7 @@ package models;
     Made for login credentials, verified in the application's login page
 */
 
-public class User {
+public class User implements Model {
     private final String username;
     private final String password;
 
@@ -16,6 +16,7 @@ public class User {
         this.username = username;
     }
 
+    @Override
     public String lineRepresentation() {
         return String.format(
                 "%s,%s",
