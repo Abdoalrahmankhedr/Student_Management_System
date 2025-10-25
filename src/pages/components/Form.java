@@ -124,7 +124,7 @@ public class Form extends JPanel {
             return;
         }
 
-        //  Handle Add mode only (no Update here)
+
         if (idText.isEmpty()) {
             db.addStudent(name, age, gender.toLowerCase(), dept, gpa);
         } else {
@@ -144,14 +144,14 @@ public class Form extends JPanel {
         db.saveToFile();
         JOptionPane.showMessageDialog(this, "Student added successfully.");
 
-        // Clear form after successful addition
+
         clearForm();
 
-        // Return to home page
+
         MainWindow.goTo("HomePage");
     }
 
-    /** Clears all input fields and resets button text */
+
     public void clearForm() {
         idField.setText("");
         nameField.setText("");
