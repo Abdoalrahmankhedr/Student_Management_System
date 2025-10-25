@@ -129,7 +129,7 @@ public class StudentsList extends JPanel {
             //Iterates over the listOfStudents and check if the searchKey is included in this record or not
             // if yes add it to shownStudents
             for(Student student:ListOfAllStudents){
-                if(searchBy.equals("Search By Name")&&student.getName().contains(searchKey)
+                if(searchBy.toLowerCase().equals("Search By Name")&&student.getName().toLowerCase().contains(searchKey)
                         ||searchBy.equals("Search By ID")&&Integer.toString(student.getId()).contains(searchKey)){
                     shownStudents.add(student);
                 }
