@@ -11,6 +11,7 @@ import java.awt.*;
 
 public class AddStudent extends JPanel {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     private final Form form;
 
     public AddStudent() {
@@ -45,11 +46,27 @@ public class AddStudent extends JPanel {
         header.backButton.addActionListener(e -> MainWindow.goTo("HomePage"));
         add(header, BorderLayout.NORTH);
 
+=======
+    public AddStudent() {
+        // Background color
+        setBackground(new Color(240, 240, 240));
+        setLayout(new BorderLayout());
+
+        // Header
+        Header header = new Header("Add Student", true);
+        header.setPreferredSize(new Dimension(800, 60));
+        header.backButton.addActionListener(e -> MainWindow.goTo("HomePage"));
+        add(header, BorderLayout.NORTH);
+
+>>>>>>> Stashed changes
         // Database connection
         StudentDatabase db = new StudentDatabase("students.txt");
 
 
         Form form = new Form(db);
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
 
@@ -60,6 +77,12 @@ public class AddStudent extends JPanel {
                 BorderFactory.createLineBorder(new Color(230, 230, 230), 1, true)
         ));
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+        card.setOpaque(true);
+
+
+>>>>>>> Stashed changes
 =======
         card.setOpaque(true);
 

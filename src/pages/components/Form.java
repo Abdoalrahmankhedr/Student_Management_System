@@ -108,6 +108,10 @@ public class Form extends JPanel {
         String gpaText = gpaField.getText().trim();
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 =======
 
 >>>>>>> Stashed changes
@@ -118,7 +122,10 @@ public class Form extends JPanel {
         }
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 
         if (!name.matches("^[A-Za-z ]+$")) {
             showError("Name must contain only letters and spaces.");
@@ -131,6 +138,9 @@ public class Form extends JPanel {
             return;
         }
 
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
         int age;
         float gpa;
@@ -145,7 +155,10 @@ public class Form extends JPanel {
 
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
         if (age < 15 || age > 100) {
             showError("Age must be between 15 and 100.");
             return;
@@ -172,6 +185,9 @@ public class Form extends JPanel {
         }
 
 
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
         if (idText.isEmpty()) {
             db.addStudent(name, age, gender.toLowerCase(), dept, gpa);
@@ -193,10 +209,14 @@ public class Form extends JPanel {
         JOptionPane.showMessageDialog(this, "Student added successfully.");
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
         clearForm();
 
 
+=======
+        clearForm();
+>>>>>>> Stashed changes
 =======
         clearForm();
 >>>>>>> Stashed changes
@@ -205,8 +225,11 @@ public class Form extends JPanel {
 
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     public void clearForm() {
 =======
+=======
+>>>>>>> Stashed changes
     private String capitalizeWords(String text) {
         String[] words = text.toLowerCase().split(" ");
         StringBuilder sb = new StringBuilder();
@@ -220,6 +243,9 @@ public class Form extends JPanel {
     }
 
     private void clearForm() {
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
         idField.setText("");
         nameField.setText("");
