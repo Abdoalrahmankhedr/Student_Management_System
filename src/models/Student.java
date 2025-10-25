@@ -55,7 +55,7 @@ public class Student {
     public static Integer validateAge(int age) {
         /* Returns input if valid, otherwise returns null */
         /* Checks if student has appropriate age for study */
-        if (age >= 16 && age <= 30) return age;
+        if (age >= 15 && age <= 100) return age;
 
         return null;
     }
