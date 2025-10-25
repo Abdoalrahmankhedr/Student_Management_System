@@ -8,9 +8,7 @@ import databases.StudentDatabase;
 import javax.swing.*;
 import java.awt.*;
 
-/**
- * AddStudent page styled like a modern card layout.
- */
+
 public class AddStudent extends JPanel {
     public AddStudent() {
         // Background color
@@ -26,10 +24,10 @@ public class AddStudent extends JPanel {
         // Database connection
         StudentDatabase db = new StudentDatabase("students.txt");
 
-        // Form
+
         Form form = new Form(db);
 
-        // White rounded card for the form
+
         JPanel card = new JPanel(new BorderLayout());
         card.setBackground(Color.WHITE);
         card.setBorder(BorderFactory.createCompoundBorder(
@@ -38,10 +36,10 @@ public class AddStudent extends JPanel {
         ));
         card.setOpaque(true);
 
-        // Add form to card
+
         card.add(form, BorderLayout.CENTER);
 
-        // Center wrapper
+        
         JPanel centerWrapper = new JPanel(new GridBagLayout());
         centerWrapper.setOpaque(false);
         centerWrapper.add(card);
