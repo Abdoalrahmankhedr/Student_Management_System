@@ -9,39 +9,47 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * AddStudent page that embeds the Form component.
- * Calls Form(db, null) so it launches in Add mode (empty fields + "Add+").
+ * AddStudent page styled like a modern card layout.
+ * Always resets form when leaving or re-entering.
  */
 public class AddStudent extends JPanel {
+    private final Form form;
+
     public AddStudent() {
-        setBackground(new Color(225, 225, 225));
+        setBackground(new Color(240, 240, 240));
         setLayout(new BorderLayout());
 
+        // Header
         Header header = new Header("Add Student", true);
-        header.setPreferredSize(new Dimension(800, 50));
-        header.backButton.addActionListener(e -> MainWindow.goTo("HomePage"));
+        header.setPreferredSize(new Dimension(800, 60));
         add(header, BorderLayout.NORTH);
 
-        // Create or get your StudentDatabase instance:
-        // Replace the filename with your actual file if different.
+        // Database
         StudentDatabase db = new StudentDatabase("students.txt");
 
-        // Pass null so the form opens in Add mode with empty fields
-        Form form = new Form(db, null);
+        // Form
+        form = new Form(db);
 
-        // Card-like white panel for styling (matches design idea)
+        // Back button behavior
+        header.backButton.addActionListener(e -> {
+            form.clearForm(); // ✅ Reset fields when going back
+            MainWindow.goTo("HomePage");
+        });
+
+        // Card design
         JPanel card = new JPanel(new BorderLayout());
         card.setBackground(Color.WHITE);
         card.setBorder(BorderFactory.createCompoundBorder(
-                BorderFactory.createEmptyBorder(24, 24, 24, 24),
-                BorderFactory.createLineBorder(new Color(230, 230, 230))
+                BorderFactory.createEmptyBorder(32, 32, 32, 32),
+                BorderFactory.createLineBorder(new Color(230, 230, 230), 1, true)
         ));
         card.add(form, BorderLayout.CENTER);
 
-        // Center wrapper to keep the card centered in the page
+        // Center card
         JPanel centerWrapper = new JPanel(new GridBagLayout());
         centerWrapper.setOpaque(false);
         centerWrapper.add(card);
+
         add(centerWrapper, BorderLayout.CENTER);
     }
 }
