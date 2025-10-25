@@ -161,7 +161,12 @@ public class StudentDatabase {
     public void addStudent(int id, String name, int age, String gender, String department, float gpa) {
         /* Add a new student with all arguments */
         if (getStudentById(id) == null) {
-            insertRecord(new Student(id, name, age, gender, department, gpa));
+            Student student = new Student(id, name, age, gender, department, gpa);
+            if (student.getGpa() == null || student.getGender() == null || student.getAge() == null) {
+                System.out.println("[StudentDatabase]: Validation failed, student not added");
+                return;
+            }
+            insertRecord(student);
             this.indexId = Math.max(this.indexId, id);
         }
     }
