@@ -100,6 +100,7 @@ public class Form extends JPanel {
     }
 
     private void handleFormSubmit() {
+        db.readFile();
         String idText = idField.getText().trim();
         String name = nameField.getText().trim();
         String dept = departmentField.getText().trim();
