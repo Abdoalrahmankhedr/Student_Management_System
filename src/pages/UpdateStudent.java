@@ -16,9 +16,9 @@ public class UpdateStudent extends JPanel {
         setLayout(new BorderLayout());
 
         // Header
-        Header header = new Header("Add Student", true);
+        Header header = new Header("Update Student", true);
         header.setPreferredSize(new Dimension(800, 60));
-        header.backButton.addActionListener(e -> MainWindow.goTo("HomePage"));
+        header.backButton.addActionListener(e -> MainWindow.goTo("StudentsList"));
         add(header, BorderLayout.NORTH);
 
         // Database connection
