@@ -168,18 +168,26 @@ public class Form extends JPanel {
         if (idText.isEmpty()) {
             db.addStudent(name, age, gender.toLowerCase(), dept, gpa);
         } else {
-            try {
-                int id = Integer.parseInt(idText);
-                if (db.contains(id)) {
-                    showError("A student with this ID already exists.");
-                    return;
-                }
-                db.addStudent(id, name, age, gender.toLowerCase(), dept, gpa);
-            } catch (NumberFormatException ex) {
-                showError("Student ID must be a number.");
-                return;
-            }
+    try {
+        int id = Integer.parseInt(idText);
+        
+        if (id <= 0) {
+            showError("Student ID must be a positive number.");
+            return;
         }
+
+        if (db.contains(id)) {
+            showError("A student with this ID already exists.");
+            return;
+        }
+
+        db.addStudent(id, name, age, gender.toLowerCase(), dept, gpa);
+    } catch (NumberFormatException ex) {
+        showError("Student ID must be a number.");
+        return;
+    }
+}
+
 
         db.saveToFile();
         JOptionPane.showMessageDialog(this, "Student added successfully.");
